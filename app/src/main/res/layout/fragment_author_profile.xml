@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sainote.waveshackathon.ui.author.AuthorProfileViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/mXSmall"
+                app:cardCornerRadius="@dimen/mXSmall"
+                app:cardElevation="@dimen/mXSmall">
+
+                <LinearLayout
+                    android:id="@+id/iv_user_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/mXSmall"
+                    android:gravity="center">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_photo"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:imageLink="@{viewmodel.news.authorPhoto}"
+                        tools:src="@drawable/ic_profile"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/mXMedium"
+                        android:text="@{viewmodel.news.author}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textSizeH2"
+                        tools:text="UserName"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardView.Light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mXSmall"
+                android:layout_marginEnd="@dimen/mXSmall"
+                android:layout_marginTop="@dimen/mXSmall"
+                app:cardCornerRadius="@dimen/mXSmall"
+                app:cardElevation="@dimen/mXSmall">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/mXSmall"
+                        android:layout_marginTop="@dimen/mXXSmall"
+                        android:textSize="@dimen/textSizeRegular"
+                        android:textStyle="bold"
+                        android:text="@{viewmodel.news.title}"
+                        tools:text="Title" />
+
+                    <TextView
+                        android:id="@+id/tv_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/mXSmall"
+                        android:layout_marginEnd="@dimen/mXSmall"
+                        android:layout_below="@id/tv_title"
+                        android:text="@{viewmodel.news.text}"
+                        tools:text="very long text dhfdjfkuddsujnsujisdusdnfssdfsdifjsdifjsidjfssdfsidfjsidjfsidjfisjdfisjdf"/>
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/iv_image"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_margin="@dimen/mXSmall"
+                        android:layout_below="@id/tv_text"
+                        app:imageLink="@{viewmodel.news.image}"
+                        app:riv_corner_radius="25dp"
+                        tools:src="@drawable/iv_begin" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mXXLarge"
+                android:layout_marginTop="@dimen/mLarge"
+                android:layout_marginEnd="@dimen/mXXLarge"
+                android:layout_marginBottom="@dimen/mLarge">
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:visibility="@{viewmodel.executing}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Button.Tint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewmodel.onDonateClicked() }"
+                    android:text="@string/donate"
+                    app:visibility="@{!viewmodel.executing}"/>
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

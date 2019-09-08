@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+        <variable
+            name="item"
+            type="com.sainote.waveshackathon.data.model.News" />
+        <variable
+            name="viewmodel"
+            type="com.sainote.waveshackathon.ui.base.viewmodel.BaseViewModelSimple" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/CardView.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/mXSmall"
+        android:layout_marginEnd="@dimen/mXSmall"
+        android:layout_marginTop="@dimen/mXSmall"
+        app:cardCornerRadius="@dimen/mXSmall"
+        app:cardElevation="@dimen/mXSmall">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/iv_user_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/mXSmall">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/iv_photo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:onClick="@{() -> viewmodel.onAuthorClicked(item)}"
+                    app:imageLink="@{item.authorPhoto}"
+                    tools:src="@drawable/ic_profile"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/iv_photo"
+                    android:layout_marginStart="@dimen/mXMedium"
+                    android:layout_centerVertical="true"
+                    android:text="@{item.author}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textSizeSmall"
+                    tools:text="UserName"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_user_data"
+                android:layout_marginStart="@dimen/mXSmall"
+                android:textSize="@dimen/textSizeRegular"
+                android:textStyle="bold"
+                android:text="@{item.title}"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/tv_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mXSmall"
+                android:layout_marginEnd="@dimen/mXSmall"
+                android:layout_below="@id/tv_title"
+                android:text="@{item.text}"
+                tools:text="very long text dhfdjfkuddsujnsujisdusdnfssdfsdifjsdifjsidjfssdfsidfjsidjfsidjfisjdfisjdf"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/iv_image"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="@dimen/mXSmall"
+                android:layout_below="@id/tv_text"
+                app:imageLink="@{item.image}"
+                app:riv_corner_radius="25dp"
+                tools:src="@drawable/iv_begin" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

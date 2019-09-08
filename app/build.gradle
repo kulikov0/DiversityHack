@@ -1,0 +1,124 @@
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-kapt"
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: "kotlin-android-extensions"
+
+android {
+
+    def PREF_NAME = "\"WAVES_HACK_PREFS\""
+    def BASE_URL_RU_PROD = "\"http://192.168.0.1/\""
+    def BASE_URL_RU_TEST = "\"http://192.168.0.1/\""
+    def STRING = "String"
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.sainote.waveshackathon"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            buildConfigField STRING, "BASE_SERVER_URL_RU", BASE_URL_RU_PROD
+            buildConfigField STRING, "PREF_NAME", PREF_NAME
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField STRING, "BASE_SERVER_URL_RU", BASE_URL_RU_TEST
+            buildConfigField STRING, "PREF_NAME", PREF_NAME
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    // multidex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // kotlin
+    implementation(Dep.kotlin)
+
+    // coroutine
+    implementation(Dep.coroutineCore)
+    implementation(Dep.coroutineAndroid)
+    testImplementation(Dep.coroutineTest)
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-messaging:19.0.1'
+
+    // androidx
+    implementation(Dep.appCompat)
+    implementation(Dep.material)
+    implementation(Dep.constraintLayout)
+    implementation(Dep.coreKtx)
+    implementation(Dep.fragmentKtx)
+    implementation(Dep.collectionKtx)
+
+    // android architecture component
+    implementation(Dep.lifecycleRuntime)
+    implementation(Dep.lifecycleExtensions)
+    implementation(Dep.lifecycleReactivestreams)
+    kapt(Dep.lifecycleCompiler)
+    implementation(Dep.viewModel)
+    implementation(Dep.viewmodelKtx)
+    implementation(Dep.livedataKtx)
+
+    // navigation
+    implementation(Dep.navFragment)
+    implementation(Dep.navUi)
+    implementation(Dep.navCommonKtx)
+    implementation(Dep.navRuntimeKtx)
+    implementation(Dep.navFragmentKtx)
+    implementation(Dep.navUiKtx)
+//    testImplementation(Dep.navTestKtx)
+
+    // dependency injection
+    implementation(Dep.dagger)
+    kapt(Dep.daggerCompiler)
+    implementation(Dep.daggerAndroid)
+    implementation(Dep.daggerAndroidSupport)
+    kapt(Dep.daggerAndroidProcessor)
+
+    // network
+    implementation(Dep.retrofit)
+    implementation(Dep.retrofitConverter)
+    implementation(Dep.retrofitAdapter)
+    debugImplementation(Dep.loggingInterceptor)
+    testImplementation(Dep.mockWebServer)
+
+    // database
+    implementation(Dep.room)
+    kapt(Dep.roomCompiler)
+    implementation(Dep.roomCoroutine)
+    testImplementation(Dep.roomTest)
+
+    // recycler view
+    implementation(Dep.groupie)
+    implementation(Dep.groupieDatabinding)
+
+    // date
+    implementation(Dep.threetenabp)
+
+    // ui
+    implementation(Dep.circleImage)
+
+    // image
+    implementation(Dep.picasso)    // image
+    implementation(Dep.glide)
+    kapt(Dep.glideKapt)
+    implementation(Dep.viewpump)
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.wavesplatform:android-sdk:0.0.7'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.10'
+
+}

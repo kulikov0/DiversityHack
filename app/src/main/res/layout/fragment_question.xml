@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sainote.waveshackathon.ui.question.QuestionViewModel" />
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/mXMedium"
+            android:padding="@dimen/mXSmall"
+            app:cardElevation="@dimen/mXSmall"
+            app:cardCornerRadius="@dimen/mXSmall">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/mXMedium"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/mLarge">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/category"
+                        android:text="@={viewmodel.category}"
+                        android:onClick="@{() -> viewmodel.onCategoryClicked()}"
+                        android:backgroundTint="@color/colorBlack"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/amount"
+                        android:text="@={viewmodel.amount}"
+                        android:onClick="@{() -> viewmodel.onAmountClick()}"
+                        android:backgroundTint="@color/colorBlack"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <EditText
+                    android:id="@+id/et_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/mMedium"
+                    android:layout_marginTop="@dimen/mXSmall"
+                    android:background="@drawable/bg_edit_text"
+                    android:padding="@dimen/mMedium"
+                    android:textSize="@dimen/textSizeRegular"
+                    android:text="@={viewmodel.question}"
+                    android:hint="@string/question"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mXXLarge"
+                    android:layout_marginEnd="@dimen/mXXLarge"
+                    android:layout_marginBottom="@dimen/mXSmall">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:visibility="@{viewmodel.executing}"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Button.Tint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{() -> viewmodel.onSendClick() }"
+                        android:text="@string/ask"
+                        app:visibility="@{!viewmodel.executing}"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

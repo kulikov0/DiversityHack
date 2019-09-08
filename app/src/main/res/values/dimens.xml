@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="textSizeMXSmall">8sp</dimen>
+    <dimen name="textSizeMSmall">10sp</dimen>
+    <dimen name="textSizeSmall">14sp</dimen>
+    <dimen name="textSizeRegular">16sp</dimen>
+    <dimen name="textSizeH3">20sp</dimen>
+    <dimen name="textSizeH2">24sp</dimen>
+    <dimen name="textSizePrice">36sp</dimen>
+    <dimen name="textCardSizePrice">15sp</dimen>
+
+    <!--<dimen name="image_attendee_big">80dp</dimen>-->
+    <!--<dimen name="margin_larger">24dp</dimen>-->
+
+    <dimen name="mXXSmall">8dp</dimen>
+    <dimen name="mXSmall">14dp</dimen>
+    <dimen name="mSmall">16dp</dimen>
+    <dimen name="mXMedium">20dp</dimen>
+    <dimen name="mMedium">24dp</dimen>
+    <dimen name="mLarge">32dp</dimen>
+    <dimen name="mXLarge">40dp</dimen>
+    <dimen name="mXXLarge">50dp</dimen>
+    <dimen name="mVeryLarge">80dp</dimen>
+    <dimen name="mXVeryLarge">100dp</dimen>
+
+    <dimen name="shopItemSize">45dp</dimen>
+
+    <dimen name="image_button_small">24dp</dimen>
+
+    <dimen name="mTiny">8dp</dimen>
+
+    <dimen name="radius">8dp</dimen>
+
+    <dimen name="textSizeButton">14sp</dimen>
+    <dimen name="buttonHeight">70dp</dimen>
+
+    <dimen name="bottom_navigation_height">57dp</dimen>
+
+    <dimen name="design_bottom_navigation_height" tools:override="true">57dp</dimen>
+
+    <dimen name="toolbar_title_text_size">18sp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
+    <dimen name="selector_height">4dp</dimen>
+
+</resources>

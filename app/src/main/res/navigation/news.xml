@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news"
+    app:startDestination="@id/newsScreen">
+
+    <fragment
+        android:id="@+id/newsScreen"
+        android:name="com.sainote.waveshackathon.ui.news.NewsFragment"
+        tools:layout="@layout/fragment_news">
+
+        <action
+            android:id="@+id/action_news_to_author_profile"
+            app:destination="@+id/authorScreen"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/authorScreen"
+        android:name="com.sainote.waveshackathon.ui.author.AuthorProfileFragment"
+        tools:layout="@layout/fragment_author_profile">
+
+        <argument
+            android:name="news"
+            app:argType="com.sainote.waveshackathon.data.model.News"/>
+
+    </fragment>
+
+</navigation>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sainote.waveshackathon.ui.login.LoginViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="88dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/mVeryLarge"
+            android:layout_marginStart="@dimen/mXLarge"
+            android:layout_above="@id/til_login"
+            android:src="@drawable/waves"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_login"
+            style="@style/TextInputLayoutAppearance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="40dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/seed"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLines="1"
+                android:text="@={viewmodel.login}"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/mXXLarge"
+            android:layout_marginEnd="@dimen/mXXLarge"
+            android:layout_marginBottom="@dimen/mVeryLarge">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:visibility="@{viewmodel.executing}"/>
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/Button.Tint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{viewmodel.buttonEnabled}"
+                android:onClick="@{() -> viewmodel.onLoginClicked() }"
+                android:text="@string/login"
+                app:visibility="@{!viewmodel.executing}"/>
+
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+</layout>

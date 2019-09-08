@@ -1,0 +1,3 @@
+package com.sainote.waveshackathon.ui.categories
+
+interface CategoriesViewModel

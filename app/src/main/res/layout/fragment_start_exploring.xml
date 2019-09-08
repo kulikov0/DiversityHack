@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.sainote.waveshackathon.ui.onboarding.OnboardingViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/iv_begin"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mMedium"
+                android:textSize="@dimen/textSizeH2"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:text="@string/start_exploring"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/mXSmall"
+                android:textAlignment="center"
+                android:textSize="@dimen/textSizeRegular"
+                android:text="@string/join_our_growing_community_now"/>
+
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/Button.Tint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mXXLarge"
+            android:layout_marginEnd="@dimen/mXXLarge"
+            android:layout_marginBottom="@dimen/mXLarge"
+            android:layout_alignParentBottom="true"
+            android:onClick="@{() -> viewmodel.onCompleteClick() }"
+            android:text="@string/begin"/>
+
+    </RelativeLayout>
+
+</layout>

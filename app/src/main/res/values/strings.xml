@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Waves Hackathon</string>
+    <string name="login">Login</string>
+    <string name="seed">Seed</string>
+    <string name="next">Next</string>
+    <string name="explore">Explore</string>
+    <string name="read_new_articles_discover_professionals">Read new articles,\ndiscover professionals</string>
+    <string name="learn">Learn</string>
+    <string name="take_online_courses_ask_developers">Take online courses,\nask developers</string>
+    <string name="begin">Begin</string>
+    <string name="start_exploring">Start exploring</string>
+    <string name="join_our_growing_community_now">Join our growing community now</string>
+    <string name="news">News</string>
+    <string name="categories">Categories</string>
+    <string name="profile">Profile</string>
+    <string name="donate">Donate</string>
+    <string name="logout">Logout</string>
+    <string name="question">Question</string>
+    <string name="category">Category</string>
+    <string name="ask">Ask</string>
+    <string name="amount">Amount</string>
+</resources>

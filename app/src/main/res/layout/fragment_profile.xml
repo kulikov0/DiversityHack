@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.sainote.waveshackathon.ui.profile.ProfileVIewModel" />
+
+    </data>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/mXSmall"
+            app:cardCornerRadius="@dimen/mXSmall"
+            app:cardElevation="@dimen/mXSmall">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/iv_user_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/mXSmall"
+                    android:gravity="center_vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_photo"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        app:imageLink="@{viewmodel.userPhoto}"
+                        tools:src="@drawable/ic_profile"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/mXMedium"
+                        android:text="@{viewmodel.name}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textSizeH2"
+                        tools:text="UserName"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mXMedium"
+                    android:layout_marginEnd="@dimen/mXMedium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textSizeRegular"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="@{viewmodel.seed}"
+                    tools:text="Seed: skfjsdfkjsdnfsdnsdsfsdfsdf"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mXMedium"
+                    android:layout_marginTop="@dimen/mXSmall"
+                    android:textSize="@dimen/textSizeH2"
+                    android:text="@{viewmodel.balance}"
+                    tools:text="Balance: 20btc"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mXXLarge"
+                    android:layout_marginTop="@dimen/mXMedium"
+                    android:layout_marginEnd="@dimen/mXXLarge"
+                    android:layout_marginBottom="@dimen/mLarge">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:visibility="@{viewmodel.executing}"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Button.Tint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{() -> viewmodel.onLogoutClicked() }"
+                        android:text="@string/logout"
+                        app:visibility="@{!viewmodel.executing}"/>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</layout>
